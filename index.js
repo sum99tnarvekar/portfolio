@@ -16,14 +16,14 @@ app.post('/api/send-mail', async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS,
+            user: "zippo5128@gmail.com",
+            pass: "zoyenibekfedqzig",
         },
     });
 
     const mailOptions = {
         from: email,
-        to: process.env.GMAIL_USER,
+        to: "zippo5128@gmail.com",
         subject: `New Contact Form Submission: ${subject}`,
         text: `
             Name: ${name}
@@ -32,10 +32,6 @@ app.post('/api/send-mail', async (req, res) => {
             Message: ${message}
         `,
     };
-
-    console.log("GMAIL_USER:", process.env.GMAIL_USER);
-    console.log("GMAIL_PASS:", process.env.GMAIL_PASS);
-    console.log('Mail Options:', mailOptions);
 
     try {
         await transporter.sendMail(mailOptions);
