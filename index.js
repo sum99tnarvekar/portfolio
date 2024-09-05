@@ -6,7 +6,9 @@ const cors = require('cors');
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+    origin: 'https://sum99t-portfolio.netlify.app'
+}));
 
 app.post('/api/send-mail', async (req, res) => {
     const { name, email, phone, subject, message } = req.body;
