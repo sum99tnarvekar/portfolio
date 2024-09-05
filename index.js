@@ -16,14 +16,14 @@ app.post('/api/send-mail', async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: "zippo5128@gmail.com",
-            pass: "zoyenibekfedqzig",
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS,
         },
     });
 
     const mailOptions = {
         from: email,
-        to: "zippo5128@gmail.com",
+        to: process.env.GMAIL_USER,
         subject: `New Contact Form Submission: ${subject}`,
         text: `
             Name: ${name}
